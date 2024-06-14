@@ -7,7 +7,7 @@
   "courseId": {
     "$oid": "6648137e9705487c69b2befc"
   },
-  "userId": {
+  "user": {
     "$oid": "663a0b36bfe65e5778eedf7e"
   }
 }]

@@ -1,0 +1,72 @@
+[{
+  "_id": {
+    "$oid": "6648137e9705487c69b2befa"
+  },
+  "title": "Business",
+  "description": "Test",
+  "thumbnail": "business.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "664813cc6fe803e9128d7fae"
+  },
+  "title": "design",
+  "description": "Walking Test",
+  "thumbnail": "design.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666ba4c1af38ed8b367f2187"
+  },
+  "title": "Web Development",
+  "description": "A Complete web development course",
+  "thumbnail": "development.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666ba4e6af38ed8b367f2188"
+  },
+  "title": "App Development",
+  "description": "A Complete web development course",
+  "thumbnail": "music.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666ba521af38ed8b367f2189"
+  },
+  "title": "SEO",
+  "description": "A Complete web development course",
+  "thumbnail": "marketing.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666ba572af38ed8b367f218a"
+  },
+  "title": "UI/UX",
+  "description": "A Complete web development course",
+  "thumbnail": "it_software.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666ba5d2af38ed8b367f218b"
+  },
+  "title": "Blogging",
+  "description": "A Complete web development course",
+  "thumbnail": "personal_development.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666ba5e8af38ed8b367f218c"
+  },
+  "title": "Photography",
+  "description": "A Complete web development course",
+  "thumbnail": "photography.jpg",
+  "__v": 0
+}]
