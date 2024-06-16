@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -15,7 +14,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export function SignupForm({ userRole }) {
-  const router=useRouter()
+  const router = useRouter();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -34,20 +33,22 @@ export function SignupForm({ userRole }) {
   const handleSubmit = async (event) => {
     event.preventDefault(); 
     try {
-      const response= await fetch("/api/register",{
-        method:"POST",
-        headers:{
-          "Content-Type":"application/json"
+      const response = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        body:JSON.stringify(formData)
-      })
+        body: JSON.stringify(formData),
+      });
 
-      if (response.status===201) {
-        router.push("/login")
+      if (response.status === 201) {
+        router.push("/login");
+      } else {
+        const data = await response.json();
+        setError(data.error);
       }
-
     } catch (error) {
-      setError(error.message);
+      setError("An unexpected error occurred. Please try again.");
     }
   };
 
