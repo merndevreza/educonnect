@@ -4,11 +4,10 @@ import FilterCourseMobile from "./_components/FilterCourseMobile";
 import ActiveFilters from "./_components/ActiveFilters";
 import FilterCourse from "./_components/FilterCourse";
 import { getCourseList } from "@/queries/courses";
-import CourseGrid from "@/components/CourseGrid";
+import CourseGrid from "@/components/CourseGrid"; 
 
 const CoursesPage = async () => {
-  const courses = await getCourseList();
-
+  const courses = await getCourseList(); 
   return (
     <section
       id="courses"

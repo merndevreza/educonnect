@@ -11,8 +11,7 @@ import Link from "next/link";
 
  
 const HomePage = async () => {
-  const courses = await getCourseList();
-  console.log("HomePage",courses);
+  const courses = await getCourseList(); 
   const categories = await getCategories();
   return (
     <>

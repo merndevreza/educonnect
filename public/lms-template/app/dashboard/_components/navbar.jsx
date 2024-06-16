@@ -1,6 +1,5 @@
 "use client";
-
-import { Logo } from "@/components/logo";
+ 
 import { MobileSidebar } from "./mobile-sidebar";
 import {
   DropdownMenu,
@@ -36,7 +35,7 @@ export const Navbar = () => {
               <Link href="">Item Two</Link>
             </DropdownMenuItem>
             <DropdownMenuItem className="cursor-pointer">
-              <Link href="">Logout</Link>
+              <Link href="#">Logout</Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
