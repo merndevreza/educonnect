@@ -12,6 +12,7 @@ import Link from "next/link";
  
 const HomePage = async () => {
   const courses = await getCourseList();
+  console.log("HomePage",courses);
   const categories = await getCategories();
   return (
     <>
@@ -44,7 +45,7 @@ const HomePage = async () => {
               Explore Now
             </Link>
             <Link
-              href=""
+              href="/register/instructor"
               className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
             >
               Become An Instructor

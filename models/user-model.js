@@ -18,7 +18,7 @@ const userSchema = new Schema({
     type: String,
   },
   phone: {
-    required: true,
+    required: false,
     type: String,
   },
   role: {
@@ -26,15 +26,15 @@ const userSchema = new Schema({
     type: String,
   },
   bio: {
-    required: true,
+    required: false,
     type: String,
   },
   socialMedia: {
-    required: true,
+    required: false,
     type: Object,
   },
   profilePicture: {
-    required: true,
+    required: false,
     type: String,
   },
 });

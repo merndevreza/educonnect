@@ -1,3 +1,4 @@
+"use server"
 import { replaceMongoIdInArray } from "@/lib/convertData";
 import { Category } from "@/models/category-model";
 

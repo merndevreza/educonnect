@@ -1,3 +1,4 @@
+"use server";
 import {
   replaceMongoIdInArray,
   replaceMongoIdInObject,
@@ -5,8 +6,10 @@ import {
 import { Category } from "@/models/category-model";
 import { Course } from "@/models/course-model";
 import { Module } from "@/models/module-model";
-import { Testimonial } from "@/models/testimonial-model";
 import { User } from "@/models/user-model";
+import { getEnrollmentsForCourse } from "./enrollments";
+import { getAllReviewsByCourseId } from "./reviews";
+import { Review } from "@/models/review-model";
 
 export async function getCourseList() {
   const courses = await Course.find()
@@ -28,7 +31,7 @@ export async function getCourseList() {
     })
     .populate({
       path: "testimonials",
-      model: Testimonial,
+      model: Review,
     })
     .populate({
       path: "modules",
@@ -51,9 +54,9 @@ export async function getCourseDetails(id) {
     })
     .populate({
       path: "testimonials",
-      model: Testimonial,
+      model: Review,
       populate: {
-        path: "user",
+        path: "student",
         model: User,
       },
     })
@@ -63,4 +66,39 @@ export async function getCourseDetails(id) {
     })
     .lean();
   return replaceMongoIdInObject(course);
+}
+
+export async function getCourseDetailsByInstructor(instructorId) {
+  const courses = await Course.find({ instructor: instructorId }).lean();
+
+  //total students
+  const enrollments = await Promise.all(
+    courses.map(async (course) => {
+      const enrollment = await getEnrollmentsForCourse(course._id.toString());
+      return enrollment;
+    })
+  );
+  const enrolledStudents = enrollments.flat();
+
+  //total reviews
+  const allTestimonials = await Promise.all(
+    courses.map(async (course) => {
+      const singleCourseTestimonials = await getAllReviewsByCourseId(
+        course._id.toString()
+      );
+      return singleCourseTestimonials;
+    })
+  );
+  const allTestimonialsArray = allTestimonials.flat();
+
+  const averageRating =
+    allTestimonialsArray.reduce((accumulator, current) => {
+      return accumulator + current.rating;
+    }, 0) / allTestimonialsArray.length;
+  return {
+    courses: courses.length,
+    students: enrolledStudents.length,
+    reviews: allTestimonialsArray.length,
+    averageRating:averageRating.toFixed(1),
+  };
 }

@@ -1,0 +1,39 @@
+[{
+  "_id": {
+    "$oid": "666d2a390563234619697180"
+  },
+  "content": "Great course! I learned a lot.",
+  "rating": 5,
+  "course": {
+    "$oid": "6648184a6fe803e9128d7fba"
+  },
+  "student": {
+    "$oid": "664accf41387e2ad2e8be488"
+  }
+},
+{
+  "_id": {
+    "$oid": "666d2a390563234619697181"
+  },
+  "content": "Best! I learned a lot.",
+  "rating": 3,
+  "course": {
+    "$oid": "6648184a6fe803e9128d7fba"
+  },
+  "student": {
+    "$oid": "664accf41387e2ad2e8be488"
+  }
+},
+{
+  "_id": {
+    "$oid": "666d2cb60563234619697185"
+  },
+  "content": "Best! I learned a lot.",
+  "rating": 3,
+  "course": {
+    "$oid": "664aca881387e2ad2e8be484"
+  },
+  "student": {
+    "$oid": "664accf41387e2ad2e8be488"
+  }
+}]
