@@ -47,7 +47,7 @@ export const {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      //always ask user to provide his/her information
+      //always ask users permission
       authorization: {
         params: {
           prompt: "consent",

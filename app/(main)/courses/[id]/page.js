@@ -5,17 +5,12 @@ import CourseDetails from "./_components/CourseDetails";
 import { getCourseDetails, getCourseList } from "@/queries/courses";
 
 const SingleCoursePage = async ({ params: { id } }) => {
-  const courses = await getCourseList()//it will be replaced later
-  const course = await getCourseDetails(id); 
-  console.log("Course Details page",course);
-  
+  const courses = await getCourseList(); //it will be replaced later
+  const course = await getCourseDetails(id);
+
   return (
     <>
-      <CourseIntro
-        title={course?.title}
-        subtitle={course?.subtitle}
-        thumbnail={course?.thumbnail}
-      />
+      <CourseIntro course={course} />
       <CourseDetails course={course} />
 
       {/* {course?.testimonials && (

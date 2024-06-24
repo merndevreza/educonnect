@@ -29,7 +29,7 @@ import CourseCurriculum from "./CourseCurriculum";
 import CourseInstructor from "./CourseInstructor";
 
 const CourseDetails = async ({ course }) => {
-  const instructor = await replaceMongoIdInObject(course.instructor);
+  const instructor = await replaceMongoIdInObject(course.instructor); 
   const category = await replaceMongoIdInObject(course.category);
 
   return (
@@ -52,6 +52,7 @@ const CourseDetails = async ({ course }) => {
               height={50}
             />
             <p className="font-bold">{`${instructor?.firstName} ${instructor?.lastName}`}</p>
+            <p>{instructor?.email}</p>
           </div>
           <div className="flex items-center gap-2 text-sm">
             <span className="text-success font-semibold">Last Updated: </span>

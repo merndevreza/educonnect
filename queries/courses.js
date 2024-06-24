@@ -72,7 +72,7 @@ export async function getCourseDetailsByInstructor(instructorId) {
   const courses = await Course.find({ instructor: instructorId }).lean();
 
   //total students
-  const enrollments = await Promise.all(
+  const enrollments = await Promise.allSettled(
     courses.map(async (course) => {
       const enrollment = await getEnrollmentsForCourse(course._id.toString());
       return enrollment;
@@ -81,7 +81,7 @@ export async function getCourseDetailsByInstructor(instructorId) {
   const enrolledStudents = enrollments.flat();
 
   //total reviews
-  const allTestimonials = await Promise.all(
+  const allTestimonials = await Promise.allSettled(
     courses.map(async (course) => {
       const singleCourseTestimonials = await getAllReviewsByCourseId(
         course._id.toString()

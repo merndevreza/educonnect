@@ -1,17 +1,18 @@
-import { ArrowRight, BookOpen } from "lucide-react";
+import {BookOpen } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { CourseProgress } from "./course-progress";
-import { Button } from "./ui/button";  
-import { formatPrice } from "@/lib/formatPrice"; 
-const CourseCard = ({course}) => { 
-   return (
+import { CourseProgress } from "./course-progress"; 
+import { formatPrice } from "@/lib/formatPrice";
+import EnrollCourse from "./EnrollCourse";
+const CourseCard = ({ course }) => {
+  return (
+    <div className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
       <Link href={`/courses/${course.id}`}>
-        <div className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
+        <div>
           <div className="relative w-full aspect-video rounded-md overflow-hidden">
             <Image
               src={`/assets/images/courses/${course?.thumbnail}`}
-              alt= {course?.title}
+              alt={course?.title}
               className="object-cover"
               fill
             />
@@ -37,24 +38,19 @@ const CourseCard = ({course}) => {
               value={80}
               variant={110 === 100 ? "success" : ""}
             />
-
-            <div className="flex items-center justify-between mt-4">
-              <p className="text-md md:text-sm font-medium text-slate-700">
-                {formatPrice(course?.price)}
-              </p>
-
-              <Button
-                variant="ghost"
-                className="text-xs text-sky-700 h-7 gap-1"
-              >
-                Enroll
-                <ArrowRight className="w-3" />
-              </Button>
-            </div>
           </div>
         </div>
       </Link>
-    );
+
+      <div className="flex items-center justify-between mt-4">
+        <p className="text-md md:text-sm font-medium text-slate-700">
+          {formatPrice(course?.price)}
+        </p>
+
+        <EnrollCourse isLink={true} course={course}/>
+      </div>
+    </div>
+  );
 };
 
 export default CourseCard;
